@@ -13,7 +13,7 @@
 
 ---
 
-## 📋 Sobre o Projeto
+## Informações sobre o desafio
 
 Este projeto implementa uma classe responsável pelo gerenciamento de pagamentos de empresas.
 
@@ -33,7 +33,7 @@ Além disso, a classe permite consultar o último pagamento realizado.
 
 ---
 
-## 🧠 Regras de Negócio
+## Regras de Negócio
 
 ### Método `pagar`
 
@@ -64,9 +64,7 @@ Retorna o último pagamento registrado.
 
 ---
 
-## 🧪 Cenários de Teste
-
-Os testes foram desenvolvidos utilizando **Mocha** e **Node Assert**.
+## Casos de Teste
 
 | #  | Cenário                       | Resultado Esperado                |
 | -- | ----------------------------- | --------------------------------- |
@@ -96,22 +94,14 @@ servico-de-pagamento/
 
 ---
 
-## 🚀 Como Executar
+## Pré-requisitos
 
-### Pré-requisitos
-
-* Node.js instalado (versão 14 ou superior)
+* Node.js instalado
 
 ### Instalação
 
 ```bash
 npm install
-```
-
-### Executar os Testes
-
-```bash
-npm test
 ```
 
 ---
@@ -140,18 +130,6 @@ O relatório apresenta:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
-| Tecnologia             | Função                        |
-| ---------------------- | ----------------------------- |
-| JavaScript (ESModules) | Linguagem principal           |
-| Node.js                | Ambiente de execução          |
-| Mocha                  | Framework de testes unitários |
-| Node Assert            | Biblioteca de asserções       |
-| Mochawesome            | Relatórios HTML               |
-
----
-
 ## 📚 Conceitos Aplicados
 
 * Programação Orientada a Objetos (POO)
@@ -164,7 +142,7 @@ O relatório apresenta:
 
 ---
 
-## 👩‍💻 Autora
+## 👩‍💻 Desenvolvido por:
 
 **Juliana Malveira**
 
