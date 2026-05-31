@@ -15,7 +15,7 @@
 
 ## Informações sobre o desafio
 
-Este projeto implementa uma classe responsável pelo gerenciamento de pagamentos de empresas.
+Este projeto implementa uma classe com dois métodos: um para realizar pagamento e outro para consultar o último pagamento.
 
 Cada pagamento possui as seguintes propriedades:
 
@@ -127,18 +127,6 @@ O relatório apresenta:
 * 📋 Detalhamento de cada cenário testado
 
 > Observação: os relatórios gerados não são versionados no repositório.
-
----
-
-## 📚 Conceitos Aplicados
-
-* Programação Orientada a Objetos (POO)
-* Encapsulamento com atributos privados
-* Tratamento de exceções com `throw new Error()`
-* Testes Unitários
-* Padrão AAA (Arrange, Act, Assert)
-* ESModules (`import` e `export`)
-* Relatórios automatizados com Mochawesome
 
 ---
 
