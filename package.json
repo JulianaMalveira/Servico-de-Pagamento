@@ -1,0 +1,13 @@
+
+{
+  "type": "module",
+  "scripts": {
+    "test": "mocha --reporter mochawesome && start mochawesome-report/mochawesome.html"
+  },
+  "devDependencies": {
+    "mocha": "^11.0.0",
+    "mochawesome": "^7.1.3"
+  }
+}
+
+
