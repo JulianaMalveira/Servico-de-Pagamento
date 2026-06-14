@@ -7,7 +7,7 @@
 ![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
 
-**Trabalho de Conclusão da Disciplina - Programação para Automação de Testes**
+**Trabalho de Conclusão das Disciplinas - Programação para Automação de Testes e Integração Contínua**
 
 </div>
 
@@ -106,27 +106,98 @@ npm install
 
 ---
 
-## 📊 Relatório de Testes
+# 🚀 Pipeline de Integração Contínua (CI)
 
-O projeto utiliza o **Mochawesome** para geração de relatórios HTML dos testes.
+## Objetivo
 
-Após executar:
+Foi implementada uma pipeline de Integração Contínua utilizando GitHub Actions para automatizar a execução dos testes e a geração de relatórios.
 
-```bash
-npm test
+A pipeline garante que toda alteração enviada ao repositório seja validada automaticamente, contribuindo para a qualidade e confiabilidade do software.
+
+---
+
+## GitHub Actions
+
+O workflow foi configurado no arquivo:
+
+```text
+.github/workflows/ci.yml
 ```
 
-um relatório será gerado automaticamente em ambiente local.
+A pipeline executa as seguintes etapas:
 
-O relatório apresenta:
+1. Checkout do código-fonte.
+2. Configuração do ambiente Node.js.
+3. Instalação das dependências do projeto.
+4. Execução dos testes automatizados.
+5. Geração dos relatórios de testes.
+6. Publicação dos relatórios como artefatos da execução.
 
-* ✅ Quantidade de testes executados
-* ✅ Testes aprovados
-* ❌ Testes com falha
-* ⏱️ Tempo de execução
-* 📋 Detalhamento de cada cenário testado
+---
 
-> Observação: os relatórios gerados não são versionados no repositório.
+## Formas de Execução
+
+### Execução por Push
+
+A pipeline é executada automaticamente sempre que um commit é enviado para o repositório.
+
+```yaml
+on:
+  push:
+```
+
+### Execução Manual
+
+A pipeline também pode ser executada manualmente através do botão **Run workflow** disponível na aba Actions do GitHub.
+
+```yaml
+on:
+  workflow_dispatch:
+```
+
+### Execução Agendada
+
+Foi configurada uma execução automática utilizando agendamento (schedule).
+
+```yaml
+schedule:
+  - cron: "*/5 * * * *"
+```
+
+---
+
+## Relatórios Gerados
+
+A pipeline gera dois tipos de relatório:
+
+### Mochawesome
+
+Relatório visual em formato HTML contendo:
+
+* Quantidade de testes executados;
+* Testes aprovados;
+* Testes com falha;
+* Tempo de execução;
+* Detalhamento dos cenários.
+
+### JUnit XML
+
+Relatório técnico utilizado por ferramentas de CI/CD para processamento automático dos resultados dos testes.
+
+---
+
+## Publicação dos Relatórios
+
+Os relatórios gerados são armazenados como artefatos da execução utilizando a action:
+
+```yaml
+actions/upload-artifact@v4
+```
+
+Artefatos publicados:
+
+* mochawesome-report
+* junit-report
 
 ---
 
@@ -138,7 +209,7 @@ O relatório apresenta:
 
 <div align="center">
 
-*Trabalho desenvolvido para a disciplina Programação para Automação de Testes.*
+*Trabalho desenvolvido para as disciplinas Programação para Automação de Testes e Integração Contínua.*
 
 </div>
 
