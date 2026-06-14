@@ -7,29 +7,17 @@
 ![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
 
-**Trabalho de Conclusão das Disciplinas - Programação para Automação de Testes e Integração Contínua**
+Projeto desenvolvido em JavaScript para demonstrar testes automatizados com Mocha e uma pipeline de Integração Contínua utilizando GitHub Actions.
 
-</div>
+## Principais Funcionalidades
 
----
-
-## Informações sobre o desafio
-
-Este projeto implementa uma classe com dois métodos: um para realizar pagamento e outro para consultar o último pagamento.
-
-Cada pagamento possui as seguintes propriedades:
-
-* Código de Barras
-* Empresa
-* Valor
-* Categoria
-
-A categoria é definida automaticamente conforme o valor informado:
-
-* Valor maior que R$100,00 → **cara**
-* Valor menor ou igual a R$100,00 → **padrão**
-
-Além disso, a classe permite consultar o último pagamento realizado.
+* Cadastro de pagamentos
+* Validação de dados obrigatórios
+* Classificação automática por categoria
+* Consulta do último pagamento realizado
+* Testes automatizados com Mocha
+* Relatórios de execução em HTML e XML
+* Pipeline CI automatizada com GitHub Actions
 
 ---
 
@@ -37,30 +25,85 @@ Além disso, a classe permite consultar o último pagamento realizado.
 
 ### Método `pagar`
 
-Recebe os dados do pagamento:
+Recebe os dados de um pagamento:
 
-```javascript
 pagar(codigoBarras, empresa, valor)
-```
 
-Valida as informações recebidas e registra o pagamento na lista interna.
+Valida as informações recebidas e registra o pagamento.
 
 Caso algum dado obrigatório não seja informado, uma exceção é lançada:
 
-```javascript
 throw new Error('Todos os dados devem ser enviados');
-```
 
-### Definição da Categoria
+### Classificação Automática
 
-```text
-Valor > 100     → categoria = "cara"
-Valor <= 100    → categoria = "padrão"
-```
+| Valor      | Categoria |
+| ---------- | --------- |
+| > R$100,00 | cara      |
+| ≤ R$100,00 | padrão    |
 
 ### Método `consultarUltimoPagamento`
 
 Retorna o último pagamento registrado.
+
+---
+
+## Tecnologias
+
+* JavaScript (ES Modules)
+* Node.js
+* Mocha
+* Mochawesome
+* Mocha JUnit Reporter
+* GitHub Actions
+* Git
+
+---
+
+## Estrutura do Projeto
+
+```text
+servico-de-pagamento/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── src/
+│   └── servicoDePagamento.js
+├── test/
+│   └── servicoDePagamento.test.js
+├── package.json
+└── README.md
+```
+
+> Os diretórios `mochawesome-report/` e `reports/` são gerados automaticamente durante a execução dos testes e da pipeline.
+
+---
+
+## Executando Localmente
+
+Instalar dependências:
+
+```bash
+npm install
+```
+
+Executar testes:
+
+```bash
+npm test
+```
+
+Gerar relatório HTML:
+
+```bash
+npm run test:report
+```
+
+Gerar relatório XML:
+
+```bash
+npm run test:junit
+```
 
 ---
 
@@ -76,33 +119,6 @@ Retorna o último pagamento registrado.
 | 06 | Consultar último pagamento    | Retorna apenas o último registro  |
 | 07 | Consultar sem pagamentos      | Retorna `undefined`               |
 
----
-
-## 🗂️ Estrutura do Projeto
-
-```text
-servico-de-pagamento/
-├── src/
-│   └── servicoDePagamento.js
-├── test/
-│   └── servicoDePagamento.test.js
-├── .gitignore
-├── package-lock.json
-├── package.json
-└── README.md
-```
-
----
-
-## Pré-requisitos
-
-* Node.js instalado
-
-### Instalação
-
-```bash
-npm install
-```
 
 ---
 
@@ -116,7 +132,7 @@ A pipeline garante que toda alteração enviada ao repositório seja validada au
 
 ---
 
-## GitHub Actions
+## Workflow
 
 O workflow foi configurado no arquivo:
 
@@ -128,10 +144,10 @@ A pipeline executa as seguintes etapas:
 
 1. Checkout do código-fonte.
 2. Configuração do ambiente Node.js.
-3. Instalação das dependências do projeto.
+3. Instalação das dependências.
 4. Execução dos testes automatizados.
 5. Geração dos relatórios de testes.
-6. Publicação dos relatórios como artefatos da execução.
+6. Publicação dos relatórios como artefatos.
 
 ---
 
@@ -148,7 +164,7 @@ on:
 
 ### Execução Manual
 
-A pipeline também pode ser executada manualmente através do botão **Run workflow** disponível na aba Actions do GitHub.
+A pipeline pode ser executada manualmente através do botão **Run workflow** disponível na aba Actions do GitHub.
 
 ```yaml
 on:
@@ -164,21 +180,23 @@ schedule:
   - cron: "*/5 * * * *"
 ```
 
+Essa configuração foi utilizada para demonstrar o funcionamento do recurso de agendamento.
+
 ---
 
 ## Relatórios Gerados
 
-A pipeline gera dois tipos de relatório:
+A pipeline gera dois formatos de relatório.
 
 ### Mochawesome
 
-Relatório visual em formato HTML contendo:
+Relatório visual em HTML contendo:
 
-* Quantidade de testes executados;
-* Testes aprovados;
-* Testes com falha;
-* Tempo de execução;
-* Detalhamento dos cenários.
+* Quantidade de testes executados
+* Testes aprovados
+* Testes com falha
+* Tempo de execução
+* Detalhamento dos cenários testados
 
 ### JUnit XML
 
@@ -188,7 +206,7 @@ Relatório técnico utilizado por ferramentas de CI/CD para processamento autom�
 
 ## Publicação dos Relatórios
 
-Os relatórios gerados são armazenados como artefatos da execução utilizando a action:
+Os relatórios são armazenados como artefatos da execução utilizando:
 
 ```yaml
 actions/upload-artifact@v4
@@ -201,15 +219,25 @@ Artefatos publicados:
 
 ---
 
-## 👩‍💻 Desenvolvido por:
+## Aprendizados
 
-**Juliana Malveira**
+Este projeto foi utilizado para praticar:
+
+* Testes automatizados com Mocha
+* Estruturação de casos de teste
+* Integração Contínua (CI)
+* GitHub Actions
+* Geração de relatórios HTML e XML
+* Publicação de artefatos
+* Automação de validações em pipelines
 
 ---
 
-<div align="center">
+## 👩‍💻 Autora
 
-*Trabalho desenvolvido para as disciplinas Programação para Automação de Testes e Integração Contínua.*
+**Juliana Malveira**
+
+
 
 </div>
 
