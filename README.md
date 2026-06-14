@@ -6,6 +6,9 @@
 ![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge\&logo=mocha\&logoColor=white)
 ![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
+</div>
 
 Projeto desenvolvido em JavaScript para demonstrar testes automatizados com Mocha e uma pipeline de Integração Contínua utilizando GitHub Actions.
 
@@ -27,13 +30,15 @@ Projeto desenvolvido em JavaScript para demonstrar testes automatizados com Moch
 
 Recebe os dados de um pagamento:
 
+```javascript
 pagar(codigoBarras, empresa, valor)
+```
 
-Valida as informações recebidas e registra o pagamento.
+Caso algum dado obrigatório não seja informado:
 
-Caso algum dado obrigatório não seja informado, uma exceção é lançada:
-
+```javascript
 throw new Error('Todos os dados devem ser enviados');
+```
 
 ### Classificação Automática
 
@@ -71,6 +76,8 @@ servico-de-pagamento/
 │   └── servicoDePagamento.js
 ├── test/
 │   └── servicoDePagamento.test.js
+├── .gitignore
+├── package-lock.json
 ├── package.json
 └── README.md
 ```
@@ -236,6 +243,7 @@ Este projeto foi utilizado para praticar:
 ## 👩‍💻 Autora
 
 **Juliana Malveira**
+Analista de Testes com foco em Qualidade de Software e Automação de Testes
 
 
 
