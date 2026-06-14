@@ -11,21 +11,23 @@
 
 </div>
 
-Projeto desenvolvido em JavaScript para demonstrar testes automatizados com Mocha e uma pipeline de Integração Contínua utilizando GitHub Actions.
-
-## Principais Funcionalidades
-
-* Cadastro de pagamentos
-* Validação de dados obrigatórios
-* Classificação automática por categoria
-* Consulta do último pagamento realizado
-* Testes automatizados com Mocha
-* Relatórios de execução em HTML e XML
-* Pipeline CI automatizada com GitHub Actions
+Projeto desenvolvido em JavaScript para demonstrar testes automatizados com Mocha, geração de relatórios de testes e uma pipeline de Integração Contínua utilizando GitHub Actions.
 
 ---
 
-## Regras de Negócio
+## ✨ Principais Funcionalidades
+
+- Cadastro de pagamentos
+- Validação de dados obrigatórios
+- Classificação automática por categoria
+- Consulta do último pagamento realizado
+- Testes automatizados com Mocha
+- Relatórios de execução em HTML e XML
+- Pipeline CI automatizada com GitHub Actions
+
+---
+
+## 📋 Regras de Negócio
 
 ### Método `pagar`
 
@@ -35,6 +37,8 @@ Recebe os dados de um pagamento:
 pagar(codigoBarras, empresa, valor)
 ```
 
+Valida os dados recebidos e registra o pagamento.
+
 Caso algum dado obrigatório não seja informado:
 
 ```javascript
@@ -43,10 +47,10 @@ throw new Error('Todos os dados devem ser enviados');
 
 ### Classificação Automática
 
-| Valor      | Categoria |
-| ---------- | --------- |
-| > R$100,00 | cara      |
-| ≤ R$100,00 | padrão    |
+| Valor | Categoria |
+|--------|------------|
+| > R$100,00 | cara |
+| ≤ R$100,00 | padrão |
 
 ### Método `consultarUltimoPagamento`
 
@@ -54,19 +58,19 @@ Retorna o último pagamento registrado.
 
 ---
 
-## Tecnologias
+## 🛠️ Tecnologias
 
-* JavaScript (ES Modules)
-* Node.js
-* Mocha
-* Mochawesome
-* Mocha JUnit Reporter
-* GitHub Actions
-* Git
+- JavaScript (ES Modules)
+- Node.js
+- Mocha
+- Mochawesome
+- Mocha JUnit Reporter
+- GitHub Actions
+- Git
 
 ---
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```text
 servico-de-pagamento/
@@ -87,52 +91,57 @@ servico-de-pagamento/
 
 ---
 
-## Executando Localmente
+## ▶️ Execução Local
 
-Instalar dependências:
+### Instalar dependências
 
 ```bash
 npm install
 ```
 
-Executar testes:
+### Executar os testes
 
 ```bash
 npm test
 ```
 
-Gerar relatório HTML:
+Executa os testes automatizados e exibe os resultados no terminal.
+
+### Gerar relatório HTML (Mochawesome)
 
 ```bash
 npm run test:report
 ```
 
-Gerar relatório XML:
+Gera um relatório visual em HTML contendo o detalhamento da execução dos testes.
+
+### Gerar relatório XML (JUnit)
 
 ```bash
 npm run test:junit
 ```
 
+Gera um relatório em formato XML utilizado por ferramentas de Integração Contínua e análise de testes.
+
 ---
 
-## Casos de Teste
+## 🧪 Casos de Teste
 
-| #  | Cenário                       | Resultado Esperado                |
-| -- | ----------------------------- | --------------------------------- |
-| 01 | Salvar pagamento válido       | Pagamento armazenado corretamente |
-| 02 | Propriedade obrigatória vazia | Erro lançado                      |
-| 03 | Pagamento inválido            | Não deve ser armazenado           |
-| 04 | Valor maior que 100           | Categoria "cara"                  |
-| 05 | Valor menor ou igual a 100    | Categoria "padrão"                |
-| 06 | Consultar último pagamento    | Retorna apenas o último registro  |
-| 07 | Consultar sem pagamentos      | Retorna `undefined`               |
-
+| # | Cenário | Resultado Esperado |
+|---|----------|-------------------|
+| 01 | Salvar pagamento válido | Pagamento armazenado corretamente |
+| 02 | Campo obrigatório não informado | Erro lançado |
+| 03 | Pagamento inválido | Não deve ser armazenado |
+| 04 | Valor maior que 100 | Categoria "cara" |
+| 05 | Valor menor ou igual a 100 | Categoria "padrão" |
+| 06 | Consultar último pagamento | Retorna apenas o último registro |
+| 07 | Consultar sem pagamentos | Retorna `undefined` |
 
 ---
 
 # 🚀 Pipeline de Integração Contínua (CI)
 
-## Objetivo
+## 🎯 Objetivo
 
 Foi implementada uma pipeline de Integração Contínua utilizando GitHub Actions para automatizar a execução dos testes e a geração de relatórios.
 
@@ -140,7 +149,7 @@ A pipeline garante que toda alteração enviada ao repositório seja validada au
 
 ---
 
-## Workflow
+## ⚙️ Workflow
 
 O workflow foi configurado no arquivo:
 
@@ -159,7 +168,7 @@ A pipeline executa as seguintes etapas:
 
 ---
 
-## Formas de Execução
+## 🔄 Formas de Execução
 
 ### Execução por Push
 
@@ -172,7 +181,7 @@ on:
 
 ### Execução Manual
 
-A pipeline pode ser executada manualmente através do botão **Run workflow** disponível na aba Actions do GitHub.
+A pipeline pode ser executada manualmente através do botão **Run workflow** disponível na aba **Actions** do GitHub.
 
 ```yaml
 on:
@@ -188,11 +197,11 @@ schedule:
   - cron: "*/5 * * * *"
 ```
 
-Essa configuração foi utilizada para demonstrar o funcionamento do recurso de agendamento.
+> Essa configuração foi utilizada para demonstrar o funcionamento do recurso de agendamento exigido pela atividade.
 
 ---
 
-## Relatórios Gerados
+## 📊 Relatórios
 
 A pipeline gera dois formatos de relatório.
 
@@ -200,19 +209,31 @@ A pipeline gera dois formatos de relatório.
 
 Relatório visual em HTML contendo:
 
-* Quantidade de testes executados
-* Testes aprovados
-* Testes com falha
-* Tempo de execução
-* Detalhamento dos cenários testados
+- Quantidade de testes executados
+- Testes aprovados
+- Testes com falha
+- Tempo de execução
+- Detalhamento dos cenários testados
+
+Arquivo gerado:
+
+```text
+mochawesome-report/mochawesome.html
+```
 
 ### JUnit XML
 
 Relatório técnico utilizado por ferramentas de CI/CD para processamento automático dos resultados dos testes.
 
+Arquivo gerado:
+
+```text
+reports/test-results.xml
+```
+
 ---
 
-## Publicação dos Relatórios
+## 📦 Publicação dos Relatórios
 
 Os relatórios são armazenados como artefatos da execução utilizando:
 
@@ -222,22 +243,22 @@ actions/upload-artifact@v4
 
 Artefatos publicados:
 
-* mochawesome-report
-* junit-report
+- mochawesome-report
+- junit-report
 
 ---
 
-## Aprendizados
+## 🎯 Aprendizados
 
 Este projeto foi utilizado para praticar:
 
-* Testes automatizados com Mocha
-* Estruturação de casos de teste
-* Integração Contínua (CI)
-* GitHub Actions
-* Geração de relatórios HTML e XML
-* Publicação de artefatos
-* Automação de validações em pipelines
+- Testes automatizados com Mocha
+- Estruturação de casos de teste
+- Integração Contínua (CI)
+- GitHub Actions
+- Geração de relatórios HTML e XML
+- Publicação de artefatos
+- Automação de validações em pipelines
 
 ---
 
@@ -245,9 +266,4 @@ Este projeto foi utilizado para praticar:
 
 **Juliana Malveira**
 
-Analista de Testes com foco em Qualidade de Software e Automação de Testes
-
-
-
-</div>
-
+Analista de Testes com foco em Qualidade de Software e Automação de Testes.
