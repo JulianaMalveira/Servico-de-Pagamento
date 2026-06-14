@@ -2,13 +2,12 @@
 
 <div align="center">
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge\&logo=mocha\&logoColor=white)
-![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=mocha&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-Automation-blue?style=for-the-badge)
-![Automated Tests](https://img.shields.io/badge/Automated-Tests-success?style=for-the-badge)
+![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge)
+![JUnit Report](https://img.shields.io/badge/JUnit-Reporter-orange?style=for-the-badge)
 
 </div>
 
@@ -245,6 +244,7 @@ Este projeto foi utilizado para praticar:
 ## 👩‍💻 Autora
 
 **Juliana Malveira**
+
 Analista de Testes com foco em Qualidade de Software e Automação de Testes
 
 
