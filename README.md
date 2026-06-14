@@ -7,6 +7,8 @@
 ![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-Automated-blue)
+![Tests](https://img.shields.io/badge/Tests-Automated-success)
 
 </div>
 
