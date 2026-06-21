@@ -2,11 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-
   workflow_dispatch:
-
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: '*/5 * * * *'
 
 jobs:
   test:
@@ -24,11 +22,24 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Generate Mochawesome Report
-        run: npm run test:report
+      - name: Run Lint
+        run: npm run lint
 
-      - name: Generate JUnit Report
-        run: npm run test:junit
+      # 🔥 RODA TESTES APENAS UMA VEZ
+      - name: Run Tests with Coverage
+        run: npm run coverage
+
+      - name: Generate Mochawesome Report (reuse)
+        run: mocha --reporter mochawesome
+
+      - name: Generate JUnit Report (reuse)
+        run: mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/test-results.xml
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
 
       - name: Upload Mochawesome Report
         uses: actions/upload-artifact@v4

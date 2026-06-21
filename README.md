@@ -2,143 +2,231 @@
 
 <div align="center">
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge\&logo=mocha\&logoColor=white)
-![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge\&logo=mocha\&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)
-
-**Trabalho de Conclusão da Disciplina - Programação para Automação de Testes**
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=mocha&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![C8](https://img.shields.io/badge/Coverage-C8-yellow?style=for-the-badge)
+![Mochawesome](https://img.shields.io/badge/Mochawesome-FF6B35?style=for-the-badge)
+![JUnit Report](https://img.shields.io/badge/JUnit-Reporter-orange?style=for-the-badge)
 
 </div>
 
 ---
 
-## Informações sobre o desafio
+## 📌 Visão Geral
 
-Este projeto implementa uma classe com dois métodos: um para realizar pagamento e outro para consultar o último pagamento.
+Projeto em JavaScript que implementa um serviço de pagamentos com regras de negócio, integrado com testes automatizados, cobertura de testes e uma pipeline de Integração Contínua (CI) no GitHub Actions.
 
-Cada pagamento possui as seguintes propriedades:
-
-* Código de Barras
-* Empresa
-* Valor
-* Categoria
-
-A categoria é definida automaticamente conforme o valor informado:
-
-* Valor maior que R$100,00 → **cara**
-* Valor menor ou igual a R$100,00 → **padrão**
-
-Além disso, a classe permite consultar o último pagamento realizado.
+O fluxo completo valida código, executa testes, gera relatórios (HTML e XML) e mede cobertura automaticamente a cada alteração no repositório.
 
 ---
 
-## Regras de Negócio
+## ✨ Funcionalidades
+
+- 💰 Cadastro de pagamentos
+- ✅ Validação de dados obrigatórios
+- 🏷️ Classificação automática por categoria
+- 🔎 Consulta do último pagamento realizado
+- 🧪 Testes automatizados com Mocha
+- 📊 Geração de relatórios (HTML e XML)
+- 📈 Cobertura de testes com C8
+- 🚀 Pipeline CI automatizada com GitHub Actions
+
+---
+
+## 📋 Regras de Negócio
 
 ### Método `pagar`
 
-Recebe os dados do pagamento:
+Recebe os dados de um pagamento:
 
 ```javascript
 pagar(codigoBarras, empresa, valor)
 ```
 
-Valida as informações recebidas e registra o pagamento na lista interna.
+Valida os dados recebidos e registra o pagamento.
 
-Caso algum dado obrigatório não seja informado, uma exceção é lançada:
+Caso algum dado obrigatório não seja informado:
 
 ```javascript
 throw new Error('Todos os dados devem ser enviados');
 ```
 
-### Definição da Categoria
+### 🏷️ Classificação automática
 
-```text
-Valor > 100     → categoria = "cara"
-Valor <= 100    → categoria = "padrão"
-```
+| Valor | Categoria |
+| ----- | --------- |
+| > 100 | cara      |
+| ≤ 100 | padrão    |
 
-### Método `consultarUltimoPagamento`
+
+### 🔎 Método `consultarUltimoPagamento`
 
 Retorna o último pagamento registrado.
 
 ---
 
-## Casos de Teste
+## 🛠️ Tecnologias
+- JavaScript (ES Modules)
+- Node.js
+- Mocha
+- C8 (Coverage)
+- Mochawesome
+- Mocha JUnit Reporter
+- GitHub Actions
+- Git
 
-| #  | Cenário                       | Resultado Esperado                |
-| -- | ----------------------------- | --------------------------------- |
-| 01 | Salvar pagamento válido       | Pagamento armazenado corretamente |
-| 02 | Propriedade obrigatória vazia | Erro lançado                      |
-| 03 | Pagamento inválido            | Não deve ser armazenado           |
-| 04 | Valor maior que 100           | Categoria "cara"                  |
-| 05 | Valor menor ou igual a 100    | Categoria "padrão"                |
-| 06 | Consultar último pagamento    | Retorna apenas o último registro  |
-| 07 | Consultar sem pagamentos      | Retorna `undefined`               |
-
----
-
-## 🗂️ Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```text
 servico-de-pagamento/
-├── src/
-│   └── servicoDePagamento.js
-├── test/
-│   └── servicoDePagamento.test.js
-├── .gitignore
-├── package-lock.json
+├── .github/workflows/ci.yml
+├── src/servicoDePagamento.js
+├── test/servicoDePagamento.test.js
+├── coverage/
+├── mochawesome-report/
+├── reports/
 ├── package.json
 └── README.md
 ```
 
----
+## ▶️ Execução Local
 
-## Pré-requisitos
-
-* Node.js instalado
-
-### Instalação
-
-```bash
+### 📦 Instalar dependências
 npm install
-```
 
----
-
-## 📊 Relatório de Testes
-
-O projeto utiliza o **Mochawesome** para geração de relatórios HTML dos testes.
-
-Após executar:
-
-```bash
+### 🧪 Executar testes
 npm test
+
+### 📈 Executar cobertura de testes
+npm run coverage 
+
+
+## 📊 Cobertura de Testes
+
+Ferramenta utilizada: C8
+
+Execução:
+npm run coverage
+
+Métricas
+Statements
+Branches
+Functions
+Lines
+
+Relatório gerado:
+coverage/
+
+## 🧪 Casos de Teste
+
+| # | Cenário | Resultado Esperado |
+|---|----------|-------------------|
+| 01 | Salvar pagamento válido | Pagamento armazenado corretamente |
+| 02 | Campo obrigatório não informado | Erro lançado |
+| 03 | Pagamento inválido | Não deve ser armazenado |
+| 04 | Valor maior que 100 | Categoria "cara" |
+| 05 | Valor menor ou igual a 100 | Categoria "padrão" |
+| 06 | Consultar último pagamento | Retorna apenas o último registro |
+| 07 | Consultar sem pagamentos | Retorna `undefined` |
+
+
+## 🚀 Pipeline de Integração Contínua (CI)
+
+### 🔗 Evidências de execução
+
+Você pode visualizar as execuções da pipeline aqui:  
+https://github.com/JulianaMalveira/Servico-de-Pagamento/actions
+
+
+### 🎯 Objetivo
+Automatizar validação de código, execução de testes e geração de relatórios.
+
+## 🔄 Fluxo da Pipeline
+
+Execução sequencial da pipeline:
+
+1. Checkout do código-fonte
+2. Instalação de dependências
+3. Execução do ESLint (qualidade de código)
+4. Execução da cobertura de testes (C8)
+5. Execução dos testes automatizados (Mocha)
+6. Geração de relatórios (Mochawesome + JUnit)
+7. Upload de artefatos para o GitHub Actions
+
+---
+
+## 🔄 Formas de Execução
+
+### Execução por Push
+
+A pipeline é executada automaticamente sempre que um commit é enviado para o repositório.
+
+```yaml
+on:
+  push:
 ```
 
-um relatório será gerado automaticamente em ambiente local.
+### Execução Manual
 
-O relatório apresenta:
+A pipeline pode ser executada manualmente através do botão **Run workflow** disponível na aba **Actions** do GitHub.
 
-* ✅ Quantidade de testes executados
-* ✅ Testes aprovados
-* ❌ Testes com falha
-* ⏱️ Tempo de execução
-* 📋 Detalhamento de cada cenário testado
+```yaml
+on:
+  workflow_dispatch:
+```
 
-> Observação: os relatórios gerados não são versionados no repositório.
+### Execução Agendada
+
+Foi configurada uma execução automática utilizando agendamento (schedule).
+
+```yaml
+schedule:
+  - cron: "*/5 * * * *"
+```
+
+> Essa configuração foi utilizada para demonstrar o funcionamento do recurso de agendamento exigido pela atividade.
 
 ---
 
-## 👩‍💻 Desenvolvido por:
+## 📑 Relatórios de Testes
 
-**Juliana Malveira**
+### 📊 Mochawesome (HTML)
+Relatório visual detalhado da execução dos testes com interface amigável.
+
+Arquivo gerado:
+mochawesome-report/mochawesome.html
 
 ---
 
-<div align="center">
+### 📄 JUnit (XML)
+Relatório técnico utilizado por ferramentas de CI/CD para leitura automática dos resultados dos testes.
 
-*Trabalho desenvolvido para a disciplina Programação para Automação de Testes.*
+Arquivo gerado:
+reports/test-results.xml
 
-</div>
+---
 
+## 📦 Artefatos gerados
+coverage/
+mochawesome-report/
+reports/
+
+---
+
+## 🎯 Aprendizados
+
+🧪 Testes automatizados com Mocha
+🚀 Integração Contínua com GitHub Actions
+📊 Cobertura de testes com C8
+📑 Geração de relatórios HTML e XML
+🧱 Boas práticas de qualidade de software
+⚙️ Automação de pipelines CI/CD
+
+---
+
+## 👩‍💻 Autora
+
+Juliana Malveira
+Analista de Testes com foco em Qualidade de Software e Automação de Testes
