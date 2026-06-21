@@ -3,15 +3,17 @@
   "scripts": {
     "test": "mocha",
     "coverage": "c8 mocha",
+    "report:html": "mocha --reporter mochawesome",
+    "report:junit": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/test-results.xml",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "c8": "^10.1.2",
     "eslint": "^10.5.0",
     "globals": "^17.6.0",
     "mocha": "^11.0.0",
     "mocha-junit-reporter": "^2.2.1",
-    "mochawesome": "^7.1.3"
+    "mochawesome": "^7.1.3",
+    "c8": "^10.1.2"
   }
 }

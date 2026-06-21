@@ -20,21 +20,23 @@ jobs:
           node-version: 22
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Lint
         run: npm run lint
 
-      # 🔥 RODA TESTES APENAS UMA VEZ
+      # ✔ UMA única execução real de testes
       - name: Run Tests with Coverage
         run: npm run coverage
 
-      - name: Generate Mochawesome Report (reuse)
-        run: mocha --reporter mochawesome
+      # 📊 Relatórios (executam sem duplicar testes importantes)
+      - name: Generate Mochawesome Report
+        run: npm run report:html
 
-      - name: Generate JUnit Report (reuse)
-        run: mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/test-results.xml
+      - name: Generate JUnit Report
+        run: npm run report:junit
 
+      # 📦 Upload artifacts
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:

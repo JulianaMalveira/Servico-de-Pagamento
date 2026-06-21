@@ -3,17 +3,41 @@ import globals from "globals";
 
 export default [
   js.configs.recommended,
+
   {
     files: ["**/*.js"],
+
     languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: {
         ...globals.node,
-        ...globals.mocha
-      },
+
+        // Mocha globals (testes)
+        describe: "readonly",
+        it: "readonly",
+        before: "readonly",
+        after: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly"
+      }
     },
+
     rules: {
       "no-unused-vars": "warn",
-      "no-undef": "error"
+      "no-undef": "error",
+      "eqeqeq": "error",
+      "no-var": "error",
+      "prefer-const": "warn"
     }
+  },
+
+  {
+    ignores: [
+      "node_modules/",
+      "coverage/",
+      "mochawesome-report/",
+      "reports/"
+    ]
   }
 ];
