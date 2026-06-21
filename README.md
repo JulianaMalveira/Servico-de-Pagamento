@@ -217,12 +217,12 @@ reports/
 
 ## 🎯 Aprendizados
 
-🧪 Testes automatizados com Mocha
-🚀 Integração Contínua com GitHub Actions
-📊 Cobertura de testes com C8
-📑 Geração de relatórios HTML e XML
-🧱 Boas práticas de qualidade de software
-⚙️ Automação de pipelines CI/CD
+- 🧪 Testes automatizados com Mocha  
+- 🚀 Integração Contínua com GitHub Actions  
+- 📊 Cobertura de testes com C8  
+- 📑 Geração de relatórios HTML e XML  
+- 🧱 Boas práticas de qualidade de software  
+- ⚙️ Automação de pipelines CI/CD  
 
 ---
 
