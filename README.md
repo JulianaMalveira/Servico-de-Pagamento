@@ -228,5 +228,7 @@ reports/
 
 ## 👩‍💻 Autora
 
-- Juliana Malveira
-- Analista de Testes com foco em Qualidade de Software e Automação de Testes
+```
+Juliana Malveira
+Analista de Testes com foco em Qualidade de Software e Automação de Testes
+```
